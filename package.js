@@ -1,5 +1,5 @@
 Package.describe({
-  name: 'dburles:google-maps',
+  name: 'meteor-google-maps',
   summary: 'Google Maps Javascript API v3',
   version: '1.1.5',
   git: 'https://github.com/dburles/meteor-google-maps.git'
@@ -10,11 +10,14 @@ Package.onUse(function(api) {
   api.use([
     'templating',
     'reactive-var',
-    'underscore']);
+    'underscore',
+    'ecmascript']);
+  api.addFiles('google-maps.js');
   api.addFiles([
     'google-maps.html',
-    'google-maps.js'], 'client');
-  api.export('GoogleMaps', 'client');
+    'google-maps-templates.js'], 'client');
+  //api.export('GoogleMaps', 'client');
+  api.export('GoogleMaps');
 });
 
 Package.onTest(function(api) {
